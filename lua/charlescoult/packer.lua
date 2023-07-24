@@ -32,21 +32,36 @@ return require('packer').startup(function(use)
       requires = {
          -- LSP Support
          {'neovim/nvim-lspconfig'},             -- Required
-         {'williamboman/mason.nvim',
-         run = function()
-            pcall(vim.api.nvim_command, 'MasonUpdate')
-         end,
-      },
-      {'williamboman/mason-lspconfig.nvim'}, -- Optional
+         {
+            'williamboman/mason.nvim',
+            run = function()
+               pcall( vim.api.nvim_command, 'MasonUpdate' )
+            end,
+         },
+         {'williamboman/mason-lspconfig.nvim'}, -- Optional
 
-      -- Autocompletion
-      {'hrsh7th/nvim-cmp'},     -- Required
-      {'hrsh7th/cmp-nvim-lsp'}, -- Required
-      {'L3MON4D3/LuaSnip'},     -- Required
+         -- Autocompletion
+         {'hrsh7th/nvim-cmp'},     -- Required
+         {'hrsh7th/cmp-nvim-lsp'}, -- Required
+         {'L3MON4D3/LuaSnip'},     -- Required
+      }
    }
 
+   -- Colorscheme
+   use {
+      'rose-pine/neovim',
+      as = 'rose-pine/neovim',
+      config = function()
+         vim.cmd( 'colorscheme rose-pine' )
+      end
+   }
 
-
-}
+   use {
+      'airidaceae/pretty-in-pink-neovim',
+      as = 'airidaceae/pretty-in-pink-neovim',
+      config = function()
+         vim.cmd( 'colorscheme airidaceae/pretty-in-pink-neovim' )
+      end
+   }
 
 end)

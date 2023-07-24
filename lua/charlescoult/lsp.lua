@@ -27,7 +27,6 @@ lsp.set_preferences( {
 
 -- buffer contextual commands
 lsp.on_attach( function( _, bufnr )
-   print('help')
    local opts = { buffer = bufnr, remap = false }
 
    vim.keymap.set( 'n', 'gd', function() vim.lsp.buf.definition() end, opts )
